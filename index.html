@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNsure Navigator - Free Health Coverage Assistance for Minnesotans</title>
+    <meta name="description" content="Get free, confidential help applying for health coverage through MNsure. Our certified navigators assist with Medical Assistance, MinnesotaCare, and private insurance enrollment. Book your consultation today.">
+    <meta property="og:title" content="MNsure Navigator - Free Health Coverage Assistance">
+    <meta property="og:description" content="Free enrollment assistance for Medical Assistance, MinnesotaCare, and private health insurance. Certified navigators ready to help all Minnesotans.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: hsl(18, 85%, 55%);
+            --color-primary-fg: hsl(30, 25%, 98%);
+            --color-bg: hsl(30, 25%, 98%);
+            --color-fg: hsl(25, 30%, 15%);
+            --color-muted: hsl(30, 20%, 90%);
+            --color-muted-fg: hsl(25, 15%, 42%);
+            --color-card: hsl(30, 30%, 96%);
+            --color-border: hsl(30, 20%, 88%);
+        }
+
+        body {
+            font-family: 'Roboto', 'Open Sans', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-fg);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(252, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--color-fg);
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--color-muted-fg);
+        }
+
+        nav {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+
+        nav a, nav button {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-fg);
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav button:hover {
+            color: var(--color-primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-primary-fg);
+            border-color: hsl(18, 85%, 48%);
+        }
+
+        .btn-primary:hover {
+            background-color: hsl(18, 85%, 60%);
+        }
+
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-outline {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                height: 700px;
+            }
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fdba74 100%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 56rem;
+            padding: 0 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.375rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+
+        @media (min-width: 768px) {
+            .hero p {
+                font-size: 1.25rem;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 5rem 0;
+            }
+        }
+
+        .section-bg {
+            background-color: hsl(30, 20%, 95%);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto 3rem;
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        .section-description {
+            font-size: 1rem;
+            color: var(--color-muted-fg);
+        }
+
+        @media (min-width: 768px) {
+            .section-description {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                gap: 2rem;
+            }
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-lg-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-lg-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Card */
+        .card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 0.375rem;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .icon-wrapper {
+            padding: 0.75rem;
+            background: rgba(251, 146, 60, 0.1);
+            border-radius: 0.375rem;
+            flex-shrink: 0;
+        }
+
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--color-muted-fg);
+            line-height: 1.75;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .about-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            color: var(--color-muted-fg);
+            line-height: 1.75;
+        }
+
+        @media (min-width: 768px) {
+            .about-text {
+                font-size: 1.125rem;
+            }
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            padding-top: 1rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .trust-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .trust-text {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .about-image {
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Booking Section */
+        .booking-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .booking-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .booking-iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 0.375rem;
+        }
+
+        .booking-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .contact-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .contact-label {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-link {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        .expectation-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .expectation-item {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 0.375rem;
+            padding: 0 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-fg);
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s;
+        }
+
+        .accordion-trigger.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+        }
+
+        .accordion-inner {
+            padding-bottom: 1rem;
+            color: var(--color-muted-fg);
+            line-height: 1.75;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--color-border);
+            background-color: hsl(30, 20%, 95%);
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3, .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            font-size: 0.875rem;
+            color: var(--color-muted-fg);
+            line-height: 1.5;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a, .footer-links button {
+            font-size: 0.875rem;
+            color: var(--color-muted-fg);
+            text-decoration: none;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover, .footer-links button:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-border);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: var(--color-muted-fg);
+        }
+
+        .max-w-5xl {
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-title">MNsure Navigator</span>
+                    <span class="logo-subtitle">Health Coverage Assistance</span>
+                </div>
+
+                <nav>
+                    <button onclick="scrollToSection('services')">Services</button>
+                    <button onclick="scrollToSection('about')">About</button>
+                    <button onclick="scrollToSection('faq')">FAQ</button>
+                    <a href="tel:6512229974" style="display: flex; align-items: center; gap: 0.25rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>(651) 222-9974</span>
+                    </a>
+                </nav>
+
+                <button class="btn btn-primary" onclick="scrollToSection('booking')">Book Consultation</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-inner">
+                <span class="badge">100% Free & Confidential Service</span>
+                <h1>Get Free Help with Your Health Coverage</h1>
+                <p>Certified MNsure Navigators helping Minnesotans apply for, renew, and understand health insurance options including Medical Assistance, MinnesotaCare, and private insurance.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-lg" onclick="scrollToSection('booking')">Schedule Free Consultation</button>
+                    <button class="btn btn-outline btn-lg" onclick="scrollToSection('services')">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2>How We Can Help You</h2>
+                <p class="section-description">Our certified navigators provide comprehensive, free assistance throughout your health coverage journey</p>
+            </div>
+
+            <div class="grid grid-2 max-w-5xl" style="margin: 0 auto;">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Free Enrollment Assistance</h3>
+                    </div>
+                    <p>We help you apply for and enroll in health coverage through MNsure via phone, virtual meetings, or in-person appointments.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </div>
+                        <h3>Medical Assistance & MinnesotaCare</h3>
+                    </div>
+                    <p>Specialized help with free or low-cost public health programs for people with low incomes and their families.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Private Insurance Help</h3>
+                    </div>
+                    <p>Assistance with Qualified Health Plans from the MNsure marketplace to find coverage that fits your needs and budget.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                            </svg>
+                        </div>
+                        <h3>Ongoing Support</h3>
+                    </div>
+                    <p>We continue to help after enrollment by submitting account changes, interpreting notices, and answering your questions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>What is a MNsure Navigator?</h2>
+                    <p class="about-text">MNsure Navigators are certified experts who provide free health insurance assistance to all Minnesotans. We work through trusted community organizations to help you find the coverage that's right for you.</p>
+                    <p class="about-text">Whether you need help with Medical Assistance, MinnesotaCare, or private insurance through the MNsure marketplace, our navigators guide you through every step of the process.</p>
+                    <p class="about-text">There are no eligibility requirements to use our services. We're here to help anyone who needs assistance understanding their health coverage options.</p>
+
+                    <div class="trust-grid">
+                        <div class="trust-item">
+                            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span class="trust-text">100% Free Service</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <span class="trust-text">Certified Navigators</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                            <span class="trust-text">Multilingual Support</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <span class="trust-text">Confidential & Secure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <div class="card">
+                        <div style="background: linear-gradient(135deg, #fb923c 0%, #fdba74 100%); height: 400px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.125rem; text-align: center; padding: 2rem;">
+                            Navigator helping client<br>with health insurance paperwork
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="booking" class="section-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2>Schedule Your Free Consultation</h2>
+                <p class="section-description">Book a one-hour session with our certified navigator Kalkidan Worku to discuss your health coverage needs</p>
+            </div>
+
+            <div class="booking-grid">
+                <div class="card" style="padding: 0;">
+                    <iframe 
+                        class="booking-iframe"
+                        src="https://hssmnsure.as.me/schedule/63a0063f/appointment/76632027/calendar/11857205?appointmentTypeIds[]=76632027"
+                        title="Schedule MNsure Navigator Consultation">
+                    </iframe>
+                </div>
+
+                <div class="booking-sidebar">
+                    <div class="card">
+                        <h3 style="font-size: 1.125rem; margin-bottom: 1rem;">Contact Information</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                <div>
+                                    <p class="contact-label">Phone</p>
+                                    <a href="tel:6512229974" class="contact-link">(651) 222-9974</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <div>
+                                    <p class="contact-label">Duration</p>
+                                    <p style="font-size: 0.875rem; color: var(--color-muted-fg);">1 hour session</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="font-size: 1.125rem; margin-bottom: 1rem;">What to Expect</h3>
+                        <ul class="expectation-list">
+                            <li class="expectation-item">
+                                <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span style="font-size: 0.875rem; color: var(--color-muted-fg);">Personalized health coverage assessment</span>
+                            </li>
+                            <li class="expectation-item">
+                                <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span style="font-size: 0.875rem; color: var(--color-muted-fg);">Help understanding your eligibility</span>
+                            </li>
+                            <li class="expectation-item">
+                                <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span style="font-size: 0.875rem; color: var(--color-muted-fg);">Assistance with application process</span>
+                            </li>
+                            <li class="expectation-item">
+                                <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span style="font-size: 0.875rem; color: var(--color-muted-fg);">Answers to all your questions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-description">Find answers to common questions about MNsure Navigators and health coverage</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span>What services do MNsure Navigators provide?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">MNsure Navigators provide free, in-person assistance to help you apply for and enroll in health coverage. We help with Medical Assistance, MinnesotaCare, and private insurance through the MNsure marketplace. We also provide ongoing support after enrollment.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span>How much does it cost to use a Navigator?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">Navigator services are completely free. There is no charge for consultations, application assistance, or ongoing support. We're here to help all Minnesotans access health coverage.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span>What is Medical Assistance and MinnesotaCare?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">Medical Assistance (MA) and MinnesotaCare are free or low-cost health programs for people with low incomes. MA is Minnesota's Medicaid program, and MinnesotaCare is a public health program for those who don't qualify for MA but still need affordable coverage.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span>Can you help me if I already have insurance?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">Yes! We can help you understand your current coverage, assist with plan changes during open enrollment, help you renew your coverage, and answer questions about your health insurance notices and benefits.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span>What should I bring to my consultation?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">Bring information about your household income, Social Security numbers for household members, and any current insurance information. Don't worry if you don't have everything – we can still help you get started.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span>Is my information kept confidential?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">Absolutely. All information you share with our Navigators is kept strictly confidential. We follow privacy laws and will never share your information without your permission.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span>Do you offer assistance in languages other than English?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">Yes, many Navigators offer services in multiple languages including Spanish, Hmong, Somali, and others. Let us know your language preference when you schedule your appointment.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span>When can I apply for health coverage?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">You can apply for Medical Assistance and MinnesotaCare year-round. For private insurance through MNsure, you can enroll during the open enrollment period (usually November-January) or if you have a qualifying life event like losing other coverage, getting married, or having a baby.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>MNsure Navigator</h3>
+                    <p>Certified navigators providing free, confidential assistance with health coverage for all Minnesotans.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <button onclick="scrollToSection('services')">Services</button>
+                        <button onclick="scrollToSection('about')">About</button>
+                        <button onclick="scrollToSection('faq')">FAQ</button>
+                        <button onclick="scrollToSection('booking')">Book Appointment</button>
+                        <a href="https://www.mnsure.org" target="_blank" rel="noopener noreferrer">MNsure.org ↗</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="tel:6512229974" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--color-muted-fg); text-decoration: none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            (651) 222-9974
+                        </a>
+                        <div style="font-size: 0.875rem; color: var(--color-muted-fg);">
+                            <p style="font-weight: 500; color: var(--color-fg); margin-bottom: 0.25rem;">Office Hours</p>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            <p style="font-size: 0.75rem; margin-top: 0.5rem;">Central Time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> MNsure Navigator Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scroll function
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Accordion toggle
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const isActive = button.classList.contains('active');
+            
+            // Close all accordions
+            document.querySelectorAll('.accordion-trigger').forEach(btn => {
+                btn.classList.remove('active');
+                btn.nextElementSibling.classList.remove('active');
+            });
+            
+            // Open clicked accordion if it wasn't already active
+            if (!isActive) {
+                button.classList.add('active');
+                content.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
